@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazzat Shinwari - Cyberpunk BBQ</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 40px #ff003c;
+      color: #fff;
+      text-align: center;
+      letter-spacing: 2px;
+    }
+
+    p.subtitle {
+      font-size: 1.2rem;
+      color: #aaa;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .card {
+      background: rgba(20, 20, 20, 0.8);
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(255, 0, 60, 0.4);
+    }
+
+    .card:hover::before {
+      border-color: #ff003c;
+      box-shadow: inset 0 0 15px rgba(255, 0, 60, 0.5);
+    }
+
+    .card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #ff003c;
+      text-shadow: 0 0 5px rgba(255, 0, 60, 0.8);
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #ddd;
+      line-height: 1.5;
+    }
+
+    .price {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 5px #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lazzat Shinwari</h1>
+  <p class="subtitle">Authentic Cyberpunk BBQ & Karahi</p>
+
+  <div class="menu-grid">
+    <div class="card">
+      <h2>Neon Tikka</h2>
+      <p>Smoky BBQ chicken skewers seared to perfection with cyber-spices.</p>
+      <span class="price">$14.99</span>
+    </div>
+    <div class="card">
+      <h2>Shinwari Karahi</h2>
+      <p>Rich, sizzling lamb karahi served in a glowing cast-iron wok.</p>
+      <span class="price">$24.99</span>
+    </div>
+    <div class="card">
+      <h2>Plasma Seekh Kebab</h2>
+      <p>Minced beef kebabs loaded with fiery green chilies and dark herbs.</p>
+      <span class="price">$16.99</span>
+    </div>
+  </div>
+</body>
+</html>
