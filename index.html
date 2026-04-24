@@ -3,123 +3,230 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lazzat Shinwari - Cyberpunk BBQ</title>
+  <title>Lazzat Shinwari | Authentic BBQ & Grill in Bhalwal</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+    :root {
+      --primary-red: #C8102E; 
+      --dark-red: #8B0000;
+      --gold: #D4AF37; 
+      --bg-light: #FDFBF7; 
+      --text-dark: #1A1A1A;
+      --text-muted: #666666;
+    }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
-      color: #fff;
-      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0; width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      z-index: 1000;
+    }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--primary-red); text-decoration: none; }
+    .nav-links a { margin: 0 1rem; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--primary-red); }
+    .call-btn { background: var(--primary-red); color: #fff; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
+    .call-btn:hover { background: var(--dark-red); }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80') center/cover;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 4rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      text-shadow: 0 0 10px #ff003c, 0 0 20px #ff003c, 0 0 40px #ff003c;
-      color: #fff;
       text-align: center;
-      letter-spacing: 2px;
-    }
-
-    p.subtitle {
-      font-size: 1.2rem;
-      color: #aaa;
-      margin-bottom: 3rem;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-    }
-
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    .card {
-      background: rgba(20, 20, 20, 0.8);
-      border: 1px solid #333;
-      border-radius: 10px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s ease-in-out;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      border: 2px solid transparent;
-      border-radius: 10px;
-      transition: all 0.3s ease-in-out;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(255, 0, 60, 0.4);
-    }
-
-    .card:hover::before {
-      border-color: #ff003c;
-      box-shadow: inset 0 0 15px rgba(255, 0, 60, 0.5);
-    }
-
-    .card h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #ff003c;
-      text-shadow: 0 0 5px rgba(255, 0, 60, 0.8);
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: #ddd;
-      line-height: 1.5;
-    }
-
-    .price {
-      display: block;
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      font-weight: bold;
+      padding: 0 20px;
       color: #fff;
-      text-shadow: 0 0 5px #fff;
     }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; color: #E0E0E0; }
+    .btn-gold { background: var(--gold); color: #000; padding: 1rem 2rem; text-decoration: none; font-size: 1.1rem; font-weight: 700; border-radius: 5px; transition: transform 0.3s, box-shadow 0.3s; }
+    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+
+    /* About Section */
+    .about { padding: 5rem 5%; display: flex; align-items: center; gap: 4rem; background: #fff; }
+    .about-text { flex: 1; }
+    .about-img { flex: 1; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; height: 400px; object-fit: cover; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary-red); margin-bottom: 1.5rem; position: relative; }
+    .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin-top: 10px; }
+
+    /* Menu Section */
+    .menu { padding: 5rem 5%; background: var(--bg-light); text-align: center; }
+    .menu-nav { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
+    .menu-tab { background: #fff; border: 2px solid var(--primary-red); color: var(--primary-red); padding: 0.8rem 1.5rem; font-weight: 600; cursor: pointer; border-radius: 30px; transition: all 0.3s; font-family: 'Montserrat', sans-serif;}
+    .menu-tab.active, .menu-tab:hover { background: var(--primary-red); color: #fff; }
+
+    .menu-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; text-align: left; animation: fadeIn 0.5s; }
+    .menu-grid.active { display: grid; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    .menu-item { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-red); display: flex; flex-direction: column; transition: transform 0.3s; padding: 1.5rem; }
+    .menu-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(200, 16, 46, 0.1); border-left-color: var(--gold); }
+    .item-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-dark); font-weight: 700; margin-bottom: 0.8rem;}
+    .prices { display: flex; flex-direction: column; gap: 0.4rem; margin-top: auto; }
+    .price-row { display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 600; border-top: 1px dashed #eee; padding-top: 0.4rem; color: #444; }
+    .price-val { color: var(--primary-red); }
+    .deal-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; font-style: italic; }
+
+    /* Footer */
+    footer { background: var(--text-dark); color: #fff; padding: 3rem 5%; text-align: center; }
+    .footer-content h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+    .footer-info { margin-bottom: 2rem; font-size: 1.1rem; }
   </style>
 </head>
 <body>
-  <h1>Lazzat Shinwari</h1>
-  <p class="subtitle">Authentic Cyberpunk BBQ & Karahi</p>
 
-  <div class="menu-grid">
-    <div class="card">
-      <h2>Neon Tikka</h2>
-      <p>Smoky BBQ chicken skewers seared to perfection with cyber-spices.</p>
-      <span class="price">$14.99</span>
+  <nav>
+    <a href="#" class="logo">Lazzat Shinwari</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#menu">Our Menu</a>
     </div>
-    <div class="card">
-      <h2>Shinwari Karahi</h2>
-      <p>Rich, sizzling lamb karahi served in a glowing cast-iron wok.</p>
-      <span class="price">$24.99</span>
+    <a href="tel:+923437500050" class="call-btn">📞 +92 3437 50 00 50</a>
+  </nav>
+
+  <section class="hero">
+    <h1>The Authentic Taste of Shinwari</h1>
+    <p>Experience Bhalwal's most premium BBQ, Karahi, and traditional cuisine. Open 24/7 to satisfy your cravings.</p>
+    <a href="#menu" class="btn-gold">View Full Menu</a>
+  </section>
+
+  <section id="about" class="about">
+    <div class="about-text">
+      <h2 class="section-title">A Premium Dining Experience</h2>
+      <p>Welcome to <strong>Lazzat Shinwari</strong>, Bhalwal's finest destination for authentic, mouth-watering BBQ and traditional Shinwari cuisine. Known for our signature red building and unforgettable flavors, we bring the true essence of traditional cooking right to your table.</p>
+      <br>
+      <p>Whether you're craving our famous Chicken Shinwari Karahi cooked in pure Desi Ghee, our sizzling Turkish Beef Kebabs, or our crispy Zinger burgers, every dish is prepared with the highest quality ingredients and authentic spices. Join us anytime—we are proudly open 24 hours a day!</p>
     </div>
-    <div class="card">
-      <h2>Plasma Seekh Kebab</h2>
-      <p>Minced beef kebabs loaded with fiery green chilies and dark herbs.</p>
-      <span class="price">$16.99</span>
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1000&q=80" alt="Restaurant Interior" class="about-img">
+  </section>
+
+  <section id="menu" class="menu">
+    <h2 class="section-title" style="text-align: center; display: inline-block;">Our Complete Menu</h2>
+    
+    <div class="menu-nav">
+      <button class="menu-tab active" onclick="showTab('karahi')">Karahi & Handi</button>
+      <button class="menu-tab" onclick="showTab('bbq')">Special BBQ & Platters</button>
+      <button class="menu-tab" onclick="showTab('fastfood')">Fast Food & Deals</button>
+      <button class="menu-tab" onclick="showTab('sides')">Sides & Beverages</button>
     </div>
-  </div>
+
+    <!-- KARAHI & HANDI -->
+    <div id="karahi" class="menu-grid active">
+      <!-- Generated Karahi Items -->
+      <script>
+        const karahiItems = [
+          "Chicken Shinwari", "Chicken Lahori Karahi", "Chicken White Karahi", "Chicken Achari", 
+          "Chicken Namkeen", "Chicken Handi", "Chicken Green Chilli", "Chicken White Handi", 
+          "Chicken Jalfrezi", "Chicken Patiala"
+        ];
+        karahiItems.forEach(item => {
+          document.write(`
+            <div class="menu-item">
+              <div class="item-title">${item}</div>
+              <div class="prices">
+                <div class="price-row"><span>Cooking Oil (Half / Full)</span> <span class="price-val">1000/- | 1800/-</span></div>
+                <div class="price-row"><span>Desi Ghee (Half / Full)</span> <span class="price-val">1100/- | 2000/-</span></div>
+              </div>
+            </div>
+          `);
+        });
+      </script>
+      <div class="menu-item">
+        <div class="item-title">Special Chicken Rosh</div>
+        <div class="prices">
+          <div class="price-row"><span>Cooking Oil (Full)</span> <span class="price-val">2800/-</span></div>
+          <div class="price-row"><span>Desi Ghee (Full)</span> <span class="price-val">3000/-</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BBQ & PLATTERS -->
+    <div id="bbq" class="menu-grid">
+      <div class="menu-item"><div class="item-title">Mutton Namkeen Tikka</div><div class="prices"><div class="price-row"><span>4 Pc</span><span class="price-val">1000/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Beef Namkeen Tikka</div><div class="prices"><div class="price-row"><span>4 Pc</span><span class="price-val">1000/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Chicken Namkeen Tikka</div><div class="prices"><div class="price-row"><span>1 Plate</span><span class="price-val">1000/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Turkish Chicken Kabab</div><div class="prices"><div class="price-row"><span>1 Plate</span><span class="price-val">1000/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Turkish Beef Kabab</div><div class="prices"><div class="price-row"><span>1 Plate</span><span class="price-val">1000/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">1 Meter Turkish Chicken Kabab</div><div class="prices"><div class="price-row"><span>1 Meter</span><span class="price-val">Price based on order</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Chicken Kabab Dash</div><div class="prices"><div class="price-row"><span>1 Plate</span><span class="price-val">1000/-</span></div></div></div>
+      
+      <!-- Specials Grouped -->
+      <div class="menu-item"><div class="item-title">Beef Lazzat Special</div><div class="deal-desc">Beef Rosh (Half), Beef Namkeen (Half), Beef Shinwari (Half), Beef Namkeen Tikka, Special Pulao, Kababs & Dall</div></div>
+      <div class="menu-item"><div class="item-title">Chicken Lazzat Special</div><div class="deal-desc">Chicken Rosh (Half), Chicken Handi (Half), Chicken Shinwari (Half), Special Pulao, Kababs & Dall</div></div>
+      <div class="menu-item"><div class="item-title">Mutton Lazzat Special</div><div class="deal-desc">Mutton Rosh (Half), Mutton Namkeen Sulemani (Half), Mutton Shinwari (Half), Namkeen Tikka, Pulao, Kababs & Dall</div></div>
+      
+      <!-- Rice -->
+      <div class="menu-item"><div class="item-title">Special Lazzat Pulao</div><div class="prices"><div class="price-row"><span>Half Plate</span><span class="price-val">Available</span></div></div></div>
+    </div>
+
+    <!-- FAST FOOD -->
+    <div id="fastfood" class="menu-grid">
+      <div class="menu-item"><div class="item-title">Patty Burger</div><div class="prices"><div class="price-row"><span>Single</span><span class="price-val">250/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Chapli Burger</div><div class="prices"><div class="price-row"><span>Single</span><span class="price-val">300/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Zinger Burger</div><div class="prices"><div class="price-row"><span>Single</span><span class="price-val">350/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Tower Burger</div><div class="prices"><div class="price-row"><span>Single</span><span class="price-val">450/-</span></div><div class="price-row"><span>Extra Cheese Slice</span><span class="price-val">50/-</span></div></div></div>
+      
+      <div class="menu-item"><div class="item-title">Fried Hot Wings</div><div class="prices"><div class="price-row"><span>5 Pcs</span><span class="price-val">300/-</span></div><div class="price-row"><span>10 Pcs</span><span class="price-val">550/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Fried Chicken Piece</div><div class="prices"><div class="price-row"><span>Per Piece</span><span class="price-val">200/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">French Fries</div><div class="prices"><div class="price-row"><span>Half</span><span class="price-val">200/-</span></div><div class="price-row"><span>Full</span><span class="price-val">350/-</span></div></div></div>
+      
+      <!-- Deals -->
+      <div class="menu-item"><div class="item-title">Deal 1</div><div class="deal-desc">Zinger Burger, Fries, Cold Drink 345ml</div><div class="prices"><div class="price-row"><span>Combo Price</span><span class="price-val">450/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Deal 2</div><div class="deal-desc">2 Zinger Burgers, Fries, Hot Wings 6 Pcs, 2 Cold Drinks 345ml</div><div class="prices"><div class="price-row"><span>Combo Price</span><span class="price-val">1350/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Lazzat Family Deal</div><div class="deal-desc">4 Zinger Burgers, 10 Hot Wings, 4 Fried Chicken Pieces, 2 Large Fries, 1.5 Ltr Drink</div><div class="prices"><div class="price-row"><span>Combo Price</span><span class="price-val">2400/-</span></div></div></div>
+    </div>
+
+    <!-- SIDES & DRINKS -->
+    <div id="sides" class="menu-grid">
+      <div class="menu-item"><div class="item-title">Naan / Roti</div><div class="prices"><div class="price-row"><span>Sada Roti (Per Head)</span><span class="price-val">70/-</span></div><div class="price-row"><span>Garlic Naan</span><span class="price-val">80/-</span></div><div class="price-row"><span>Roghni Naan</span><span class="price-val">100/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Raita & Salad</div><div class="prices"><div class="price-row"><span>Khalis Zeera Raita</span><span class="price-val">120/-</span></div><div class="price-row"><span>Khalis Mint Raita</span><span class="price-val">120/-</span></div><div class="price-row"><span>Fresh Salad</span><span class="price-val">150/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Tea</div><div class="prices"><div class="price-row"><span>Tea</span><span class="price-val">100/-</span></div><div class="price-row"><span>Green Tea</span><span class="price-val">70/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Beverages</div><div class="prices"><div class="price-row"><span>Cold Drink Regular</span><span class="price-val">80/-</span></div><div class="price-row"><span>Cold Drink 345ml</span><span class="price-val">100/-</span></div><div class="price-row"><span>Cold Drink Tin</span><span class="price-val">150/-</span></div><div class="price-row"><span>Cold Drink 1 Ltr</span><span class="price-val">180/-</span></div><div class="price-row"><span>Cold Drink 1.5 Ltr</span><span class="price-val">240/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Water</div><div class="prices"><div class="price-row"><span>Water Bottle 500ml</span><span class="price-val">70/-</span></div><div class="price-row"><span>Water Bottle 1.5 Ltr</span><span class="price-val">100/-</span></div></div></div>
+      <div class="menu-item"><div class="item-title">Dall</div><div class="prices"><div class="price-row"><span>Lazzat Special White Dall</span><span class="price-val">Available</span></div></div></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <h3>Lazzat Shinwari</h3>
+      <div class="footer-info">
+        <p>📍 Bhalwal, Punjab, Pakistan</p>
+        <p>📞 Order Now: +92 3437 50 00 50</p>
+        <p>🕒 Open 24 Hours</p>
+      </div>
+      <p style="color: #888; font-size: 0.9rem;">The Authentic Taste of Shinwari in Bhalwal.</p>
+    </div>
+  </footer>
+
+  <script>
+    function showTab(tabId) {
+      document.querySelectorAll('.menu-grid').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.menu-tab').forEach(el => el.classList.remove('active'));
+      
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
 </body>
 </html>
