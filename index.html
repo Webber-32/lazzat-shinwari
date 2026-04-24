@@ -9,8 +9,10 @@
 
     :root {
       --primary-red: #C8102E; 
+      --neon-red: #ff1e4d;
       --dark-red: #8B0000;
       --gold: #D4AF37; 
+      --neon-gold: #ffdf70;
       --bg-light: #FDFBF7; 
       --text-dark: #1A1A1A;
       --text-muted: #666666;
@@ -39,16 +41,16 @@
       padding: 1rem 5%;
       z-index: 1000;
     }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--primary-red); text-decoration: none; }
-    .nav-links a { margin: 0 1rem; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--primary-red); }
-    .call-btn { background: var(--primary-red); color: #fff; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: 600; transition: background 0.3s; }
-    .call-btn:hover { background: var(--dark-red); }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--primary-red); text-decoration: none; text-shadow: 0 0 5px rgba(200, 16, 46, 0.2); }
+    .nav-links a { margin: 0 1rem; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s, text-shadow 0.3s; }
+    .nav-links a:hover { color: var(--primary-red); text-shadow: 0 0 8px rgba(200, 16, 46, 0.4); }
+    .call-btn { background: var(--primary-red); color: #fff; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+    .call-btn:hover { background: var(--dark-red); box-shadow: 0 0 15px var(--neon-red); }
 
     /* Hero Section */
     .hero {
       height: 100vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80') center/cover;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80') center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -57,39 +59,70 @@
       padding: 0 20px;
       color: #fff;
     }
-    .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; color: #E0E0E0; }
-    .btn-gold { background: var(--gold); color: #000; padding: 1rem 2rem; text-decoration: none; font-size: 1.1rem; font-weight: 700; border-radius: 5px; transition: transform 0.3s, box-shadow 0.3s; }
-    .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); }
+    .hero h1 { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 4rem; 
+      margin-bottom: 1rem; 
+      /* Subtle Cyberpunk Neon Red Glow */
+      text-shadow: 0 0 10px rgba(200, 16, 46, 0.8), 0 0 20px rgba(200, 16, 46, 0.6), 0 0 40px var(--primary-red); 
+    }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; color: #E0E0E0; text-shadow: 0 0 5px rgba(255,255,255,0.3); }
+    .btn-gold { 
+      background: var(--gold); 
+      color: #000; 
+      padding: 1rem 2rem; 
+      text-decoration: none; 
+      font-size: 1.1rem; 
+      font-weight: 700; 
+      border-radius: 5px; 
+      transition: all 0.3s; 
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+    .btn-gold:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 0 20px var(--neon-gold), 0 0 40px rgba(212, 175, 55, 0.8); 
+      background: var(--neon-gold);
+    }
 
     /* About Section */
     .about { padding: 5rem 5%; display: flex; align-items: center; gap: 4rem; background: #fff; }
     .about-text { flex: 1; }
     .about-img { flex: 1; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); width: 100%; height: 400px; object-fit: cover; }
-    .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary-red); margin-bottom: 1.5rem; position: relative; }
-    .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin-top: 10px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--primary-red); margin-bottom: 1.5rem; position: relative; text-shadow: 0 0 5px rgba(200,16,46,0.1); }
+    .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--gold); margin-top: 10px; box-shadow: 0 0 8px var(--gold); }
 
     /* Menu Section */
     .menu { padding: 5rem 5%; background: var(--bg-light); text-align: center; }
     .menu-nav { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
     .menu-tab { background: #fff; border: 2px solid var(--primary-red); color: var(--primary-red); padding: 0.8rem 1.5rem; font-weight: 600; cursor: pointer; border-radius: 30px; transition: all 0.3s; font-family: 'Montserrat', sans-serif;}
-    .menu-tab.active, .menu-tab:hover { background: var(--primary-red); color: #fff; }
+    .menu-tab.active, .menu-tab:hover { 
+      background: var(--primary-red); 
+      color: #fff; 
+      box-shadow: 0 0 15px rgba(200, 16, 46, 0.6); /* Cyberpunk glow on active tabs */
+      border-color: var(--neon-red);
+    }
 
     .menu-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; text-align: left; animation: fadeIn 0.5s; }
     .menu-grid.active { display: grid; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    .menu-item { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-red); display: flex; flex-direction: column; transition: transform 0.3s; padding: 1.5rem; }
-    .menu-item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(200, 16, 46, 0.1); border-left-color: var(--gold); }
-    .item-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-dark); font-weight: 700; margin-bottom: 0.8rem;}
+    .menu-item { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-left: 4px solid var(--primary-red); display: flex; flex-direction: column; transition: all 0.3s; padding: 1.5rem; position: relative; z-index: 1; }
+    .menu-item:hover { 
+      transform: translateY(-3px); 
+      box-shadow: 0 0 20px rgba(200, 16, 46, 0.25); /* Subtle neon shadow */
+      border-left-color: var(--neon-red); 
+    }
+    .item-title { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-dark); font-weight: 700; margin-bottom: 0.8rem; transition: text-shadow 0.3s;}
+    .menu-item:hover .item-title { text-shadow: 0 0 8px rgba(200,16,46,0.2); }
     .prices { display: flex; flex-direction: column; gap: 0.4rem; margin-top: auto; }
     .price-row { display: flex; justify-content: space-between; font-size: 0.95rem; font-weight: 600; border-top: 1px dashed #eee; padding-top: 0.4rem; color: #444; }
-    .price-val { color: var(--primary-red); }
+    .price-val { color: var(--primary-red); font-weight: 700; }
     .deal-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; font-style: italic; }
 
     /* Footer */
-    footer { background: var(--text-dark); color: #fff; padding: 3rem 5%; text-align: center; }
-    .footer-content h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; }
+    footer { background: var(--text-dark); color: #fff; padding: 3rem 5%; text-align: center; border-top: 2px solid var(--primary-red); position: relative; }
+    footer::before { content: ''; position: absolute; top: -2px; left: 0; width: 100%; height: 2px; background: var(--primary-red); box-shadow: 0 0 15px var(--neon-red); }
+    .footer-content h3 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); margin-bottom: 1rem; text-shadow: 0 0 10px rgba(212, 175, 55, 0.4); }
     .footer-info { margin-bottom: 2rem; font-size: 1.1rem; }
   </style>
 </head>
