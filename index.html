@@ -1,17 +1,18 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lazzat Shinwari | Authentic BBQ &amp; Grill in Bhalwal</title>
+  <title>Lazzat Shinwari | Authentic Menu</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lato:wght@300;400;700&display=swap');
 
     :root {
-      --primary: #8B0000;      /* Deep Red */
-      --secondary: #D4AF37;    /* Elegant Gold */
-      --bg-color: #FAFAFA;     /* Off-white */
-      --text-main: #333333;    /* Dark Gray */
-      --text-muted: #666666;   /* Medium Gray */
-      --card-bg: #FFFFFF;      /* White */
+      --primary: #8B0000;
+      --secondary: #D4AF37;
+      --bg-color: #FAFAFA;
+      --text-main: #333333;
+      --text-muted: #666666;
       --border: #EAEAEA;
     }
 
@@ -41,7 +42,6 @@
     .logo { 
       font-family: 'Cinzel', serif; 
       font-size: 1.8rem; 
-      font-weight: 700; 
       color: var(--primary); 
       text-decoration: none; 
     }
@@ -50,7 +50,6 @@
       text-decoration: none; 
       color: var(--text-main); 
       font-weight: 600; 
-      transition: color 0.3s; 
     }
     .nav-links a:hover { color: var(--primary); }
     .call-btn { 
@@ -59,146 +58,115 @@
       padding: 0.6rem 1.2rem; 
       border-radius: 4px; 
       text-decoration: none; 
-      font-weight: 600; 
-      transition: background 0.3s; 
     }
-    .call-btn:hover { background: #660000; }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      height: 70vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80') center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 0 20px;
+      background: var(--primary);
       color: #fff;
-      margin-top: 70px;
+      padding: 120px 20px 60px;
+      text-align: center;
     }
-    .hero h1 { 
-      font-family: 'Cinzel', serif; 
-      font-size: 3.5rem; 
-      margin-bottom: 1rem; 
-      color: #FFF;
-    }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; font-weight: 300; }
-    .btn-gold { 
-      background: var(--secondary); 
-      color: #000; 
-      padding: 1rem 2rem; 
-      text-decoration: none; 
-      font-size: 1.1rem; 
-      font-weight: 700; 
-      border-radius: 4px; 
-      transition: background 0.3s; 
-    }
-    .btn-gold:hover { background: #b5952f; }
+    .hero h1 { font-family: 'Cinzel', serif; font-size: 3rem; margin-bottom: 10px; color: var(--secondary); }
+    .hero p { font-size: 1.2rem; font-weight: 300; }
 
-    /* Menu Section */
-    .menu { padding: 4rem 5%; text-align: center; }
-    .section-title { 
-      font-family: 'Cinzel', serif; 
-      font-size: 2.5rem; 
-      color: var(--primary); 
-      margin-bottom: 2rem; 
+    /* Menu Layout */
+    .menu-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
     }
-    .section-title::after { 
-      content: ''; 
-      display: block; 
-      width: 60px; 
-      height: 2px; 
-      background: var(--secondary); 
-      margin: 15px auto 0; 
+    
+    .menu-section {
+      margin-bottom: 50px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--primary);
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      border-bottom: 1px dashed #ccc;
+      padding-bottom: 10px;
     }
 
-    /* Menu Tabs */
-    .menu-nav { 
-      display: flex; 
-      justify-content: center; 
-      gap: 0.5rem; 
-      margin-bottom: 3rem; 
-      flex-wrap: wrap; 
-    }
-    .menu-tab { 
-      background: var(--card-bg); 
-      border: 1px solid var(--border); 
-      color: var(--text-main); 
-      padding: 0.6rem 1.5rem; 
-      font-weight: 600; 
-      cursor: pointer; 
-      border-radius: 30px; 
-      transition: all 0.3s; 
-      font-family: 'Lato', sans-serif; 
-      font-size: 0.9rem; 
-    }
-    .menu-tab.active, .menu-tab:hover { 
-      background: var(--primary); 
-      color: #fff; 
-      border-color: var(--primary); 
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
     }
 
-    /* Menu Grid */
-    .menu-grid { 
-      display: none; 
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
-      gap: 2rem; 
-      text-align: left; 
-      animation: fadeIn 0.4s ease-in-out; 
-    }
-    .menu-grid.active { display: grid; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-    .menu-item { 
-      background: var(--card-bg); 
-      border-radius: 8px; 
-      overflow: hidden; 
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
-      transition: transform 0.3s, box-shadow 0.3s; 
-      border: 1px solid var(--border);
+    .menu-item {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 10px 0;
+      border-bottom: 1px dotted #eaeaea;
     }
-    .menu-item:hover { 
-      transform: translateY(-5px); 
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+    .item-name {
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 1.1rem;
+      flex: 1;
+    }
+    .item-dots {
+      flex: 2;
+      border-bottom: 1px dotted #ccc;
+      margin: 0 10px;
+      position: relative;
+      top: -5px;
+    }
+    .item-price {
+      font-weight: 700;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    .item-desc {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      font-weight: normal;
+    }
+
+    /* Complex Items (Karahi with multiple prices) */
+    .complex-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 10px;
+    }
+    .complex-header {
+      font-family: 'Cinzel', serif;
+      font-size: 1.3rem;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .price-table th {
+      text-align: left;
+      padding: 5px;
+      color: var(--text-muted);
+      border-bottom: 1px solid #ccc;
+    }
+    .price-table td {
+      padding: 5px;
+      font-weight: 600;
     }
     
-    .item-img { 
-      width: 100%; 
-      height: 200px; 
-      object-fit: cover; 
-      background-color: #eee;
-    }
-
-    .item-info { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-    .item-title { 
-      font-family: 'Cinzel', serif; 
-      font-size: 1.2rem; 
-      color: var(--primary); 
-      font-weight: 700; 
-      margin-bottom: 0.5rem; 
-    }
-    
-    .prices { margin-top: auto; padding-top: 1rem; border-top: 1px dashed #ddd; display: flex; flex-direction: column; gap: 0.3rem; }
-    .price-row { display: flex; justify-content: space-between; align-items: center; }
-    .price-label { font-size: 0.85rem; color: var(--text-muted); }
-    .price-val { color: var(--text-main); font-weight: 700; }
-
-    /* Footer */
-    footer { 
-      background: var(--primary); 
-      color: #fff; 
-      padding: 3rem 5%; 
-      text-align: center; 
-    }
-    .footer-content h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--secondary); margin-bottom: 1rem; }
-    .footer-info p { margin-bottom: 0.5rem; font-size: 0.95rem; }
-
     @media (max-width: 768px) {
+      .menu-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.2rem; }
-      .menu-tab { padding: 0.5rem 1rem; font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -207,431 +175,190 @@
   <nav>
     <a href="#" class="logo">Lazzat Shinwari</a>
     <div class="nav-links">
-      <a href="#menu">Menu</a>
       <a href="tel:+923437500050" class="call-btn">Order Now</a>
     </div>
   </nav>
 
-  <section class="hero">
-    <h1>Authentic Shinwari Cuisine</h1>
-    <p>Experience Bhalwal's most premium BBQ, Karahi, and traditional cuisine in an elegant setting.</p>
-    <a href="#menu" class="btn-gold">Explore Menu</a>
-  </section>
+  <div class="hero">
+    <h1>Our Menu</h1>
+    <p>Authentic Shinwari BBQ, Karahi, Fast Food & Drinks</p>
+  </div>
 
-  <section id="menu" class="menu">
-    <h2 class="section-title">Our Menu</h2>
-    
-    <div class="menu-nav">
-      <button class="menu-tab active" onclick="showTab('chicken-special')">Chicken Karahi</button>
-      <button class="menu-tab" onclick="showTab('bbq')">BBQ</button>
-      <button class="menu-tab" onclick="showTab('beef-special')">Beef Special</button>
-      <button class="menu-tab" onclick="showTab('chicken-lazzat')">Chicken Special</button>
-      <button class="menu-tab" onclick="showTab('mutton-special')">Mutton Special</button>
-      <button class="menu-tab" onclick="showTab('fast-food')">Fast Food</button>
-      <button class="menu-tab" onclick="showTab('drinks')">Drinks &amp; Coffee</button>
+  <div class="menu-container">
+
+    <!-- PLATTERS / LAZZAT SPECIAL BBQ -->
+    <div class="menu-section">
+      <h2 class="section-title">Lazzat Special BBQ</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="item-name">Mutton Namkeen Tikka<span class="item-desc">4 Pcs</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Beef Namkeen Tikka<span class="item-desc">4 Pcs</span></div><div class="item-dots"></div><div class="item-price">1000/-</div></div>
+        <div class="menu-item"><div class="item-name">Chicken Namkeen Tikka<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1200/-</div></div>
+        <div class="menu-item"><div class="item-name">Turkish Chicken Kabab<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1000/-</div></div>
+        <div class="menu-item"><div class="item-name">Turkish Beef Kabab<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1200/-</div></div>
+        <div class="menu-item"><div class="item-name">1 Meter Turkish Chicken Kabab</div><div class="item-dots"></div><div class="item-price">2500/-</div></div>
+        <div class="menu-item"><div class="item-name">Chicken Kabab Daigi<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1000/-</div></div>
+      </div>
     </div>
 
-    <!-- CHICKEN SPECIAL -->
-    <div id="chicken-special" class="menu-grid active">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Shinwari" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Shinwari</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
+    <!-- LAZZAT SPECIALTIES (BEEF/MUTTON/CHICKEN) -->
+    <div class="menu-section">
+      <h2 class="section-title">Beef Lazzat Special</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="item-name">Beef Rosh<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Beef Namkeen<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Beef Shinwari<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Beef Namkeen Tikka<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Special Lazzat Pulao<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1200/-</div></div>
+        <div class="menu-item"><div class="item-name">Turkish Beef Kabab<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1200/-</div></div>
+        <div class="menu-item"><div class="item-name">Turkish Chicken Kabab<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1000/-</div></div>
+        <div class="menu-item"><div class="item-name">Lazzat Special White Dall<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">450/-</div></div>
       </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Lahori Karahi" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Lahori Karahi</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken White Karahi" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken White Karahi</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1627042633145-b780d842ba45?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Achari" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Achari</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Namkeen" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Namkeen</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Handi" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Handi</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Green Chilli" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Green Chilli</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken White Handi" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken White Handi</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Jalfrezi" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Jalfrezi</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Patiala" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Patiala</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1576107248882-ff8fb6f5ed61?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Special Chicken Rosh" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Special Chicken Rosh</div>
-          <div class="prices">
-            <div class="price-row"><span class="price-label">Cooking Oil (Full)</span> <span class="price-val">2800/-</span></div>
-            <div class="price-row"><span class="price-label">Desi Ghee (Full)</span> <span class="price-val">3000/-</span></div>
-          </div>
-        </div>
-      </div></div>
+    </div>
 
-    <!-- BBQ -->
-    <div id="bbq" class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Mutton Namkeen Tikka (4 pc)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Mutton Namkeen Tikka (4 pc)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Per Order</span><span class="price-val">Price Varies</span></div></div>
-        </div>
+    <div class="menu-section">
+      <h2 class="section-title">Chicken Lazzat Special</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="item-name">Chicken Rosh<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1200/-</div></div>
+        <div class="menu-item"><div class="item-name">Chicken Handi<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1200/-</div></div>
+        <div class="menu-item"><div class="item-name">Chicken Shinwari<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1000/-</div></div>
+        <div class="menu-item"><div class="item-name">Chicken Kabab Daigi<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1000/-</div></div>
+        <div class="menu-item"><div class="item-name">Special Lazzat Pulao<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">800/-</div></div>
+        <div class="menu-item"><div class="item-name">Turkish Beef Kabab<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1200/-</div></div>
+        <div class="menu-item"><div class="item-name">Turkish Chicken Kabab<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1000/-</div></div>
+        <div class="menu-item"><div class="item-name">Lazzat Special White Dall<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">450/-</div></div>
       </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Beef Namkeen Tikka (4 pc)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Beef Namkeen Tikka (4 pc)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Per Order</span><span class="price-val">Price Varies</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Namkeen Tikka" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Namkeen Tikka</div>
-          <div class="prices"><div class="price-row"><span class="price-label">1 Plate</span><span class="price-val">Price Varies</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1627042633145-b780d842ba45?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Turkish Chicken/Beef Kabab" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Turkish Chicken/Beef Kabab</div>
-          <div class="prices"><div class="price-row"><span class="price-label">1 Plate</span><span class="price-val">Price Varies</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="1 Meter Turkish Chicken Kabab" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">1 Meter Turkish Chicken Kabab</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Exclusive</span><span class="price-val">Order Only</span></div></div>
-        </div>
-      </div></div>
+    </div>
 
-    <!-- BEEF SPECIAL -->
-    <div id="beef-special" class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Beef Rosh (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Beef Rosh (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
+    <div class="menu-section">
+      <h2 class="section-title">Mutton Lazzat Special</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="item-name">Mutton Rosh<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Mutton Namkeen Sulemani<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Mutton Shinwari<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Mutton Namkeen Tikka<span class="item-desc">4 Pcs</span></div><div class="item-dots"></div><div class="item-price">1800/-</div></div>
+        <div class="menu-item"><div class="item-name">Special Lazzat Pulao<span class="item-desc">Half</span></div><div class="item-dots"></div><div class="item-price">1500/-</div></div>
+        <div class="menu-item"><div class="item-name">Turkish Beef Kabab<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1200/-</div></div>
+        <div class="menu-item"><div class="item-name">Turkish Chicken Kabab<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">1000/-</div></div>
+        <div class="menu-item"><div class="item-name">Lazzat Special White Dall<span class="item-desc">1 Plate</span></div><div class="item-dots"></div><div class="item-price">450/-</div></div>
       </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Beef Namkeen (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Beef Namkeen (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Beef Shinwari (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Beef Shinwari (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Beef Namkeen Tikka (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Beef Namkeen Tikka (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Special Lazzat Pulao (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Special Lazzat Pulao (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1576107248882-ff8fb6f5ed61?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Turkish Beef Kabab (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Turkish Beef Kabab (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Turkish Chicken Kabab (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Turkish Chicken Kabab (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Lazzat Special White Dall (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Lazzat Special White Dall (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div></div>
+    </div>
 
-    <!-- CHICKEN LAZZAT SPECIAL -->
-    <div id="chicken-lazzat" class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Rosh (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Rosh (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
+    <!-- CHICKEN KARAHI LIST (FULL/HALF, OIL/GHEE) -->
+    <div class="menu-section">
+      <h2 class="section-title">Lazzat Chicken Karahi Specials</h2>
+      <p style="text-align: center; margin-bottom: 20px; color: var(--text-muted);">Prices are listed for Cooking Oil (Half/Full) and Desi Ghee (Half/Full)</p>
+      
+      <div class="menu-grid">
+        <!-- Reusable script logic for HTML generation of the 10 similar items -->
+        <div class="complex-item">
+          <div class="complex-header">Chicken Shinwari</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken Lahori Karahi</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken White Karahi</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken Achari</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken Namkeen</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken Handi</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken Green Chilli</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken White Handi</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken Jalfrezi</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Chicken Patiala</div>
+          <table class="price-table"><tr><th></th><th>Half</th><th>Full</th></tr><tr><td>Cooking Oil</td><td>1000/-</td><td>1800/-</td></tr><tr><td>Desi Ghee</td><td>1100/-</td><td>2000/-</td></tr></table>
+        </div>
+        <div class="complex-item">
+          <div class="complex-header">Special Chicken Rosh</div>
+          <table class="price-table"><tr><th></th><th>Full</th></tr><tr><td>Cooking Oil</td><td>2800/-</td></tr><tr><td>Desi Ghee</td><td>3000/-</td></tr></table>
         </div>
       </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1627042633145-b780d842ba45?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Handi (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Handi (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Shinwari (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Shinwari (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chicken Kabab Dash (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chicken Kabab Dash (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Special Lazzat Pulao (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Special Lazzat Pulao (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Turkish Beef Kabab (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Turkish Beef Kabab (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Turkish Chicken Kabab (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Turkish Chicken Kabab (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Lazzat Special White Dall (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Lazzat Special White Dall (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div></div>
-
-    <!-- MUTTON SPECIAL -->
-    <div id="mutton-special" class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1576107248882-ff8fb6f5ed61?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Mutton Rosh (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Mutton Rosh (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Mutton Namkeen Sulemani (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Mutton Namkeen Sulemani (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Mutton Shinwari (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Mutton Shinwari (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Mutton Namkeen Tikka (4 pc)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Mutton Namkeen Tikka (4 pc)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1627042633145-b780d842ba45?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Special Lazzat Pulao (Half)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Special Lazzat Pulao (Half)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Turkish Beef Kabab (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Turkish Beef Kabab (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Turkish Chicken Kabab (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Turkish Chicken Kabab (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Lazzat Special White Dall (1 Plate)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Lazzat Special White Dall (1 Plate)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div>
-        </div>
-      </div></div>
+    </div>
 
     <!-- FAST FOOD -->
-    <div id="fast-food" class="menu-grid">
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Zinger Burger" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Zinger Burger</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">350/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Tower Burger" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Tower Burger</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">450/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Chapli Burger" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Chapli Burger</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">300/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1576107248882-ff8fb6f5ed61?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Patty Burger" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Patty Burger</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">250/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Fried Hot Wings (5/10 pcs)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Fried Hot Wings (5/10 pcs)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">300/550</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Fried Chicken Piece" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Fried Chicken Piece</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">200/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="French Fries (Small/Large)" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">French Fries (Small/Large)</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">200/350</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1627042633145-b780d842ba45?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Deal 1" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Deal 1</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Combo</span><span class="price-val">450/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Deal 2" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Deal 2</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Combo</span><span class="price-val">1350/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Lazzat Family Deal" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Lazzat Family Deal</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Full Package</span><span class="price-val">2400/-</span></div></div>
-        </div>
-      </div></div>
-
-    <!-- DRINKS & COFFEE -->
-    <div id="drinks" class="menu-grid">
-      <div class="menu-item"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Mint Margarita" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Mint Margarita</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 300</span></div></div></div></div>
-      <div class="menu-item"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Strawberry Margarita" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Strawberry Margarita</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 380</span></div></div></div></div>
-      <div class="menu-item"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Mojito" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Virgin Mojito</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 450</span></div></div></div></div>
-      <div class="menu-item"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Cappuccino" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Cappuccino Hot</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 500</span></div></div></div></div>
-      <div class="menu-item"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Latte" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Caramel Latte Cold</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 450</span></div></div></div></div>
-      <div class="menu-item"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&amp;fit=crop&amp;w=500&amp;q=60" alt="Lassi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Special Lazzat Sweet Lassi</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 300</span></div></div></div></div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-content">
-      <h3>Lazzat Shinwari</h3>
-      <div class="footer-info">
-        <p>Bhalwal City, Pakistan</p>
-        <p>Open 24/7</p>
-        <p>Phone: +92 343 7500050</p>
+    <div class="menu-section">
+      <h2 class="section-title">Lazzat Fast Food</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="item-name">Patty Burger</div><div class="item-dots"></div><div class="item-price">350/-</div></div>
+        <div class="menu-item"><div class="item-name">Chappli Burger</div><div class="item-dots"></div><div class="item-price">350/-</div></div>
+        <div class="menu-item"><div class="item-name">Zinger Burger</div><div class="item-dots"></div><div class="item-price">400/-</div></div>
+        <div class="menu-item"><div class="item-name">Tower Burger</div><div class="item-dots"></div><div class="item-price">450/-</div></div>
+        <div class="menu-item"><div class="item-name">Extra Cheese Slice</div><div class="item-dots"></div><div class="item-price">50/-</div></div>
+        <div class="menu-item"><div class="item-name">Hot Wings<span class="item-desc">5 Pcs</span></div><div class="item-dots"></div><div class="item-price">300/-</div></div>
+        <div class="menu-item"><div class="item-name">Hot Wings<span class="item-desc">10 Pcs</span></div><div class="item-dots"></div><div class="item-price">550/-</div></div>
+        <div class="menu-item"><div class="item-name">Fried Chicken Piece</div><div class="item-dots"></div><div class="item-price">250/-</div></div>
+        <div class="menu-item"><div class="item-name">French Fries<span class="item-desc">Small</span></div><div class="item-dots"></div><div class="item-price">200/-</div></div>
+        <div class="menu-item"><div class="item-name">French Fries<span class="item-desc">Medium</span></div><div class="item-dots"></div><div class="item-price">350/-</div></div>
+        <div class="menu-item"><div class="item-name">French Fries<span class="item-desc">Large</span></div><div class="item-dots"></div><div class="item-price">500/-</div></div>
       </div>
     </div>
-  </footer>
 
-  <script>
-    function showTab(tabId) {
-      document.querySelectorAll('.menu-grid').forEach(el => el.classList.remove('active'));
-      document.querySelectorAll('.menu-tab').forEach(el => el.classList.remove('active'));
-      
-      document.getElementById(tabId).classList.add('active');
-      event.target.classList.add('active');
-    }
-  </script>
+    <!-- NAAN, ROTI, RAITA, SALAD -->
+    <div class="menu-section">
+      <h2 class="section-title">Sides & Breads</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="item-name">Sada Roti<span class="item-desc">Per Head</span></div><div class="item-dots"></div><div class="item-price">75/-</div></div>
+        <div class="menu-item"><div class="item-name">Roghni Naan</div><div class="item-dots"></div><div class="item-price">150/-</div></div>
+        <div class="menu-item"><div class="item-name">Garlic Naan</div><div class="item-dots"></div><div class="item-price">80/-</div></div>
+        <div class="menu-item"><div class="item-name">Khalis Zeera Raita</div><div class="item-dots"></div><div class="item-price">250/-</div></div>
+        <div class="menu-item"><div class="item-name">Khalis Mint Raita</div><div class="item-dots"></div><div class="item-price">250/-</div></div>
+        <div class="menu-item"><div class="item-name">Fresh Salad</div><div class="item-dots"></div><div class="item-price">150/-</div></div>
+      </div>
+    </div>
 
-</body></html>
+    <!-- BEVERAGES -->
+    <div class="menu-section">
+      <h2 class="section-title">Beverages & Tea</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="item-name">Tea</div><div class="item-dots"></div><div class="item-price">100/-</div></div>
+        <div class="menu-item"><div class="item-name">Green Tea</div><div class="item-dots"></div><div class="item-price">70/-</div></div>
+        <div class="menu-item"><div class="item-name">Cold Drink<span class="item-desc">Regular</span></div><div class="item-dots"></div><div class="item-price">80/-</div></div>
+        <div class="menu-item"><div class="item-name">Cold Drink<span class="item-desc">Tin</span></div><div class="item-dots"></div><div class="item-price">100/-</div></div>
+        <div class="menu-item"><div class="item-name">Cold Drink<span class="item-desc">500ml</span></div><div class="item-dots"></div><div class="item-price">120/-</div></div>
+        <div class="menu-item"><div class="item-name">Cold Drink<span class="item-desc">1 Ltr</span></div><div class="item-dots"></div><div class="item-price">180/-</div></div>
+        <div class="menu-item"><div class="item-name">Cold Drink<span class="item-desc">1.5 Ltr</span></div><div class="item-dots"></div><div class="item-price">240/-</div></div>
+        <div class="menu-item"><div class="item-name">Water Bottle<span class="item-desc">500ml</span></div><div class="item-dots"></div><div class="item-price">70/-</div></div>
+        <div class="menu-item"><div class="item-name">Water Bottle<span class="item-desc">1.5 Ltr</span></div><div class="item-dots"></div><div class="item-price">150/-</div></div>
+      </div>
+    </div>
+
+    <!-- SPECIAL DRINKS -->
+    <div class="menu-section">
+      <h2 class="section-title">Special Drinks & Coffee</h2>
+      <div class="menu-grid">
+        <div class="menu-item"><div class="item-name">Mint Margarita</div><div class="item-dots"></div><div class="item-price">300/-</div></div>
+        <div class="menu-item"><div class="item-name">Strawberry / Peach / Blueberry Margarita</div><div class="item-dots"></div><div class="item-price">380/-</div></div>
+        <div class="menu-item"><div class="item-name">Fresh Lime</div><div class="item-dots"></div><div class="item-price">200/-</div></div>
+        <div class="menu-item"><div class="item-name">Virgin Mojito (All Flavors)</div><div class="item-dots"></div><div class="item-price">450/-</div></div>
+        <div class="menu-item"><div class="item-name">Colada (Chocolate/Peach/Blue/Strawberry/Pina)</div><div class="item-dots"></div><div class="item-price">450/-</div></div>
+        <div class="menu-item"><div class="item-name">Hot Coffee (Cappuccino/Latte/Mocha)</div><div class="item-dots"></div><div class="item-price">500/-</div></div>
+        <div class="menu-item"><div class="item-name">Cold Coffee (Caramel/Latte/Vanilla/Mocha)</div><div class="item-dots"></div><div class="item-price">450/-</div></div>
+        <div class="menu-item"><div class="item-name">Special Lazzat Sweet Lassi</div><div class="item-dots"></div><div class="item-price">300/-</div></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
