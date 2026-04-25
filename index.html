@@ -168,7 +168,105 @@
       .menu-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.2rem; }
     }
-  </style>
+  
+  /* Chatbot Styles */
+  .chatbot-toggler {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+  }
+  .chatbot-toggler:hover { transform: scale(1.1); }
+  
+  .chatbot-window {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 350px;
+    max-width: 90vw;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 9999;
+    border: 1px solid var(--border);
+    animation: slideUp 0.3s ease;
+  }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  
+  .chatbot-header {
+    background: var(--primary);
+    color: white;
+    padding: 15px;
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .close-btn { cursor: pointer; background: none; border: none; color: white; font-size: 20px; }
+  
+  .chatbot-body {
+    height: 350px;
+    overflow-y: auto;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fafafa;
+  }
+  
+  .chat-msg {
+    max-width: 80%;
+    padding: 10px 14px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+  .msg-ai { background: #e0e0e0; color: #333; align-self: flex-start; border-bottom-left-radius: 4px; }
+  .msg-user { background: var(--primary); color: white; align-self: flex-end; border-bottom-right-radius: 4px; }
+  
+  .chatbot-input {
+    display: flex;
+    border-top: 1px solid #eaeaea;
+    background: #fff;
+  }
+  .chatbot-input input {
+    flex: 1;
+    border: none;
+    padding: 15px;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+  }
+  .chatbot-input button {
+    background: var(--secondary);
+    border: none;
+    padding: 0 20px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .chatbot-input button:hover { background: #b5952f; }
+  .typing-indicator { font-size: 0.8rem; color: #888; align-self: flex-start; display: none; }
+
+</style>
 </head>
 <body>
 
@@ -360,5 +458,95 @@
     </div>
 
   </div>
+
+  <button class="chatbot-toggler" id="chatbot-toggler">💬</button>
+  <div class="chatbot-window" id="chatbot-window">
+    <div class="chatbot-header">
+      Lazzat AI Assistant
+      <button class="close-btn" id="close-btn">&times;</button>
+    </div>
+    <div class="chatbot-body" id="chatbot-body">
+      <div class="chat-msg msg-ai">Asalam o Alaikum! Mai Lazzat Shinwari ki AI assistant hu. Apko menu ya order ke baare mein kuch poochna hai? 😊</div>
+      <div class="typing-indicator" id="typing-indicator">Typing...</div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chat-input" placeholder="Type a message..." />
+      <button id="send-btn">Send</button>
+    </div>
+  </div>
+
+
+  <script>
+    const toggler = document.getElementById('chatbot-toggler');
+    const chatWindow = document.getElementById('chatbot-window');
+    const closeBtn = document.getElementById('close-btn');
+    const sendBtn = document.getElementById('send-btn');
+    const chatInput = document.getElementById('chat-input');
+    const chatBody = document.getElementById('chatbot-body');
+    const typingIndicator = document.getElementById('typing-indicator');
+
+    let chatHistory = [
+      {
+        "role": "system",
+        "content": "You are a very sweet, friendly, and helpful female AI assistant for Lazzat Shinwari Restaurant in Bhalwal, Pakistan. You MUST speak ONLY in Roman Urdu (e.g. 'Jee bilkul, humara menu bohot acha hai'). Greet nicely if greeted. Answer questions about the menu, prices, and restaurant. The menu has BBQ, Beef/Mutton/Chicken Karahi (Shinwari, Lahori, White etc.), Fast food, Drinks. Example prices: Chicken Karahi Half 1000/Full 1800 (Oil) or Half 1100/Full 2000 (Desi Ghee). Mutton/Beef Rosh 1800. Zinger Burger 400. Mint Margarita 300. Open 24/7. Phone: +923437500050. Be short, sweet, and use emojis like 😊, ✨, 🍖. If you don't know something, sweetly ask them to call the restaurant."
+      }
+    ];
+
+    toggler.addEventListener('click', () => {
+      chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      chatWindow.style.display = 'none';
+    });
+
+    function appendMessage(text, sender) {
+      const msgDiv = document.createElement('div');
+      msgDiv.classList.add('chat-msg', sender === 'ai' ? 'msg-ai' : 'msg-user');
+      msgDiv.textContent = text;
+      chatBody.insertBefore(msgDiv, typingIndicator);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    async function sendMessage() {
+      const text = chatInput.value.trim();
+      if (!text) return;
+
+      appendMessage(text, 'user');
+      chatInput.value = '';
+      
+      chatHistory.push({ "role": "user", "content": text });
+      
+      typingIndicator.style.display = 'block';
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      try {
+        const response = await fetch('https://text.pollinations.ai/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            messages: chatHistory,
+            model: "openai"
+          })
+        });
+        
+        const aiText = await response.text();
+        typingIndicator.style.display = 'none';
+        
+        appendMessage(aiText, 'ai');
+        chatHistory.push({ "role": "assistant", "content": aiText });
+        
+      } catch (error) {
+        typingIndicator.style.display = 'none';
+        appendMessage("Maaf karna, network issue hai. Thori der baad try karein! 😟", 'ai');
+      }
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+
 </body>
 </html>
