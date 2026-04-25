@@ -5,26 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lazzat Shinwari | Authentic BBQ & Grill in Bhalwal</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
 
     :root {
-      --primary-red: #C8102E; 
-      --neon-red: #ff1e4d;
-      --dark-red: #8B0000;
-      --gold: #D4AF37; 
-      --neon-gold: #ffdf70;
-      --bg-light: #0a0a0a; 
-      --text-dark: #e0e0e0;
-      --text-muted: #a0a0a0;
+      --primary: #8B0000;      /* Deep Red */
+      --secondary: #D4AF37;    /* Elegant Gold */
+      --bg-color: #FAFAFA;     /* Off-white */
+      --text-main: #333333;    /* Dark Gray */
+      --text-muted: #666666;   /* Medium Gray */
+      --card-bg: #FFFFFF;      /* White */
+      --border: #EAEAEA;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Montserrat', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
+      font-family: 'Lato', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
@@ -32,25 +31,45 @@
     nav {
       position: fixed;
       top: 0; width: 100%;
-      background: rgba(10, 10, 10, 0.95);
-      backdrop-filter: blur(10px);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 5%;
       z-index: 1000;
+      border-bottom: 2px solid var(--primary);
     }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--primary-red); text-decoration: none; text-shadow: 0 0 5px rgba(200, 16, 46, 0.2); }
-    .nav-links a { margin: 0 1rem; text-decoration: none; color: var(--text-dark); font-weight: 600; transition: color 0.3s, text-shadow 0.3s; }
-    .nav-links a:hover { color: var(--primary-red); text-shadow: 0 0 8px rgba(200, 16, 46, 0.4); }
-    .call-btn { background: var(--primary-red); color: #fff; padding: 0.6rem 1.2rem; border-radius: 5px; text-decoration: none; font-weight: 600; transition: all 0.3s; }
-    .call-btn:hover { background: var(--dark-red); box-shadow: 0 0 15px var(--neon-red); }
+    .logo { 
+      font-family: 'Cinzel', serif; 
+      font-size: 1.8rem; 
+      font-weight: 700; 
+      color: var(--primary); 
+      text-decoration: none; 
+    }
+    .nav-links a { 
+      margin: 0 1rem; 
+      text-decoration: none; 
+      color: var(--text-main); 
+      font-weight: 600; 
+      transition: color 0.3s; 
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .call-btn { 
+      background: var(--primary); 
+      color: #fff !important; 
+      padding: 0.6rem 1.2rem; 
+      border-radius: 4px; 
+      text-decoration: none; 
+      font-weight: 600; 
+      transition: background 0.3s; 
+    }
+    .call-btn:hover { background: #660000; }
 
     /* Hero Section */
     .hero {
-      height: 80vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1920&q=80') center/cover;
+      height: 70vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1920&q=80') center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -58,77 +77,130 @@
       text-align: center;
       padding: 0 20px;
       color: #fff;
+      margin-top: 70px;
     }
     .hero h1 { 
-      font-family: 'Playfair Display', serif; 
-      font-size: 4rem; 
+      font-family: 'Cinzel', serif; 
+      font-size: 3.5rem; 
       margin-bottom: 1rem; 
-      text-shadow: 0 0 10px rgba(200, 16, 46, 0.8), 0 0 20px rgba(200, 16, 46, 0.6); 
+      color: #FFF;
     }
-    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; color: #E0E0E0; }
+    .hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; font-weight: 300; }
     .btn-gold { 
-      background: var(--gold); 
+      background: var(--secondary); 
       color: #000; 
       padding: 1rem 2rem; 
       text-decoration: none; 
       font-size: 1.1rem; 
       font-weight: 700; 
-      border-radius: 5px; 
-      transition: all 0.3s; 
+      border-radius: 4px; 
+      transition: background 0.3s; 
     }
-    .btn-gold:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 0 20px var(--neon-gold);
-    }
+    .btn-gold:hover { background: #b5952f; }
 
-    /* Section Styling */
-    .section-title { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--primary-red); margin-bottom: 1rem; position: relative; display: block; text-align: center; }
-    .section-title::after { content: ''; display: block; width: 80px; height: 3px; background: var(--gold); margin: 15px auto; box-shadow: 0 0 8px var(--gold); }
+    /* Menu Section */
+    .menu { padding: 4rem 5%; text-align: center; }
+    .section-title { 
+      font-family: 'Cinzel', serif; 
+      font-size: 2.5rem; 
+      color: var(--primary); 
+      margin-bottom: 2rem; 
+    }
+    .section-title::after { 
+      content: ''; 
+      display: block; 
+      width: 60px; 
+      height: 2px; 
+      background: var(--secondary); 
+      margin: 15px auto 0; 
+    }
 
     /* Menu Tabs */
-    .menu { padding: 5rem 5%; background: var(--bg-light); text-align: center; }
-    .menu-nav { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3.5rem; flex-wrap: wrap; }
-    .menu-tab { background: #1a1a1a; border: 2px solid var(--primary-red); color: var(--primary-red); padding: 0.8rem 1.8rem; font-weight: 700; cursor: pointer; border-radius: 30px; transition: all 0.3s; font-family: 'Montserrat', sans-serif; text-transform: uppercase; font-size: 0.9rem; }
+    .menu-nav { 
+      display: flex; 
+      justify-content: center; 
+      gap: 0.5rem; 
+      margin-bottom: 3rem; 
+      flex-wrap: wrap; 
+    }
+    .menu-tab { 
+      background: var(--card-bg); 
+      border: 1px solid var(--border); 
+      color: var(--text-main); 
+      padding: 0.6rem 1.5rem; 
+      font-weight: 600; 
+      cursor: pointer; 
+      border-radius: 30px; 
+      transition: all 0.3s; 
+      font-family: 'Lato', sans-serif; 
+      font-size: 0.9rem; 
+    }
     .menu-tab.active, .menu-tab:hover { 
-      background: var(--primary-red); 
+      background: var(--primary); 
       color: #fff; 
-      box-shadow: 0 0 15px rgba(200, 16, 46, 0.6); 
-      border-color: var(--neon-red);
+      border-color: var(--primary); 
     }
 
-    /* Menu Grid and Cards */
-    .menu-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; text-align: left; animation: fadeIn 0.5s; }
+    /* Menu Grid */
+    .menu-grid { 
+      display: none; 
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+      gap: 2rem; 
+      text-align: left; 
+      animation: fadeIn 0.4s ease-in-out; 
+    }
     .menu-grid.active { display: grid; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-    .menu-item { background: #1a1a1a; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 15px rgba(255, 30, 77, 0.15); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; position: relative; border-bottom: 4px solid transparent; }
-    .menu-item:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(255, 30, 77, 0.4); border-bottom-color: var(--neon-red); }
+    .menu-item { 
+      background: var(--card-bg); 
+      border-radius: 8px; 
+      overflow: hidden; 
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+      transition: transform 0.3s, box-shadow 0.3s; 
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+    }
+    .menu-item:hover { 
+      transform: translateY(-5px); 
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1); 
+    }
     
-    .item-img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.5s; }
-    .menu-item:hover .item-img { transform: scale(1.05); }
+    .item-img { 
+      width: 100%; 
+      height: 200px; 
+      object-fit: cover; 
+      background-color: #eee;
+    }
 
-    .item-info { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
-    .item-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--text-dark); font-weight: 700; margin-bottom: 0.5rem; }
-    .item-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; line-height: 1.4; flex-grow: 1; }
+    .item-info { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .item-title { 
+      font-family: 'Cinzel', serif; 
+      font-size: 1.2rem; 
+      color: var(--primary); 
+      font-weight: 700; 
+      margin-bottom: 0.5rem; 
+    }
     
-    .prices { border-top: 1px solid #333; padding-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .price-row { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; font-weight: 600; color: #bbb; }
-    .price-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); }
-    .price-val { color: var(--primary-red); font-size: 1.1rem; font-weight: 700; font-family: 'Montserrat', sans-serif; }
+    .prices { margin-top: auto; padding-top: 1rem; border-top: 1px dashed #ddd; display: flex; flex-direction: column; gap: 0.3rem; }
+    .price-row { display: flex; justify-content: space-between; align-items: center; }
+    .price-label { font-size: 0.85rem; color: var(--text-muted); }
+    .price-val { color: var(--text-main); font-weight: 700; }
 
     /* Footer */
-    footer { background: #111; color: #fff; padding: 4rem 5%; text-align: center; border-top: 3px solid var(--primary-red); position: relative; }
-    footer::before { content: ''; position: absolute; top: -3px; left: 0; width: 100%; height: 3px; background: var(--primary-red); box-shadow: 0 0 15px var(--neon-red); }
-    .footer-content h3 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--gold); margin-bottom: 1.5rem; text-shadow: 0 0 10px rgba(212, 175, 55, 0.3); }
-    .footer-info p { margin-bottom: 0.8rem; font-size: 1rem; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    footer { 
+      background: var(--primary); 
+      color: #fff; 
+      padding: 3rem 5%; 
+      text-align: center; 
+    }
+    .footer-content h3 { font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--secondary); margin-bottom: 1rem; }
+    .footer-info p { margin-bottom: 0.5rem; font-size: 0.95rem; }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.5rem; }
-      .menu-grid { grid-template-columns: 1fr; }
-      .section-title { font-size: 2.2rem; }
-      .menu-nav { gap: 5px; padding: 0 10px; }
-      .menu-tab { padding: 0.5rem 0.8rem; font-size: 0.75rem; border-radius: 15px; flex-grow: 1; margin: 0; }
+      .hero h1 { font-size: 2.2rem; }
+      .menu-tab { padding: 0.5rem 1rem; font-size: 0.8rem; }
     }
   </style>
 </head>
@@ -140,180 +212,73 @@
       <a href="#menu">Menu</a>
       <a href="tel:+923437500050" class="call-btn">Order Now</a>
     </div>
-  
-            <a href="#special-drinks">Special Drinks</a>
-            <a href="#special-coffee">Special Coffee</a>
-        </nav>
+  </nav>
 
   <section class="hero">
-    <h1>The Authentic Taste of Shinwari</h1>
-    <p>Experience Bhalwal's most premium BBQ, Karahi, and traditional cuisine. Open 24/7 to satisfy your cravings.</p>
-    <a href="#menu" class="btn-gold">Explore Full Menu</a>
+    <h1>Authentic Shinwari Cuisine</h1>
+    <p>Experience Bhalwal's most premium BBQ, Karahi, and traditional cuisine in an elegant setting.</p>
+    <a href="#menu" class="btn-gold">Explore Menu</a>
   </section>
 
   <section id="menu" class="menu">
-    <h2 class="section-title">Our Complete Menu</h2>
+    <h2 class="section-title">Our Menu</h2>
     
     <div class="menu-nav">
       <button class="menu-tab active" onclick="showTab('chicken-special')">Chicken Karahi</button>
       <button class="menu-tab" onclick="showTab('bbq')">BBQ</button>
-      <button class="menu-tab" onclick="showTab('beef-special')">Lazzat Beef Special</button>
-      <button class="menu-tab" onclick="showTab('chicken-lazzat-special')">Lazzat Chicken Special</button>
-      <button class="menu-tab" onclick="showTab('mutton-special')">Lazzat Mutton Special</button>
+      <button class="menu-tab" onclick="showTab('beef-special')">Beef Special</button>
+      <button class="menu-tab" onclick="showTab('chicken-lazzat')">Chicken Special</button>
+      <button class="menu-tab" onclick="showTab('mutton-special')">Mutton Special</button>
       <button class="menu-tab" onclick="showTab('fast-food')">Fast Food</button>
-      <button class="menu-tab" onclick="showTab('sides-drinks')">Sides & Drinks</button>
+      <button class="menu-tab" onclick="showTab('drinks')">Drinks & Coffee</button>
     </div>
 
     <!-- CHICKEN SPECIAL -->
     <div id="chicken-special" class="menu-grid active">
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Shinwari%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Shinwari" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Shinwari</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Lahori%20Karahi%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Lahori Karahi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Lahori Karahi</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20White%20Karahi%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken White Karahi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken White Karahi</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Achari%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Achari" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Achari</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Namkeen%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Namkeen" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Namkeen</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Handi%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Handi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Handi</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Green%20Chilli%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Green Chilli" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Green Chilli</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20White%20Handi%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken White Handi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken White Handi</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Jalfrezi%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Jalfrezi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Jalfrezi</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Patiala%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Patiala" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Patiala</div><div class="prices"><div class="price-row"><span class="price-label">Cooking Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
-      <div class="menu-item">
-        <img src="https://image.pollinations.ai/prompt/Special%20Chicken%20Rosh%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Special Chicken Rosh" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Special Chicken Rosh</div>
-          <div class="prices">
-            <div class="price-row"><span class="price-label">Cooking Oil (Full)</span> <span class="price-val">2800/-</span></div>
-            <div class="price-row"><span class="price-label">Desi Ghee (Full)</span> <span class="price-val">3000/-</span></div>
-          </div>
-        </div>
-      </div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?auto=format&fit=crop&w=500&q=60" alt="Chicken Karahi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Shinwari</div><div class="prices"><div class="price-row"><span class="price-label">Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=500&q=60" alt="Chicken Lahori Karahi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Lahori Karahi</div><div class="prices"><div class="price-row"><span class="price-label">Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?auto=format&fit=crop&w=500&q=60" alt="Chicken White Karahi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken White Karahi</div><div class="prices"><div class="price-row"><span class="price-label">Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1627042633145-b780d842ba45?auto=format&fit=crop&w=500&q=60" alt="Chicken Handi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Handi</div><div class="prices"><div class="price-row"><span class="price-label">Oil (Half/Full)</span> <span class="price-val">1000/1800</span></div><div class="price-row"><span class="price-label">Desi Ghee (Half/Full)</span> <span class="price-val">1100/2000</span></div></div></div></div>
     </div>
 
-        <!-- BBQ -->
+    <!-- BBQ -->
     <div id="bbq" class="menu-grid">
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Mutton%20Namkeen%20Tikka%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Mutton Namkeen Tikka" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Mutton Namkeen Tikka (4 pc)</div><div class="prices"><div class="price-row"><span class="price-label">Per Order</span><span class="price-val">Price Varies</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Beef%20Namkeen%20Tikka%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Beef Namkeen Tikka" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Beef Namkeen Tikka (4 pc)</div><div class="prices"><div class="price-row"><span class="price-label">Per Order</span><span class="price-val">Price Varies</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Namkeen%20Tikka%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Namkeen Tikka" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Namkeen Tikka</div><div class="prices"><div class="price-row"><span class="price-label">1 Plate</span><span class="price-val">Price Varies</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Turkish%20Kabab%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Turkish Kabab" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Turkish Chicken/Beef Kabab</div><div class="prices"><div class="price-row"><span class="price-label">1 Plate</span><span class="price-val">Price Varies</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/1%20Meter%20Kabab%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="1 Meter Kabab" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">1 Meter Turkish Chicken Kabab</div><div class="prices"><div class="price-row"><span class="price-label">Exclusive</span><span class="price-val">Order Only</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=60" alt="Mutton Tikka" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Mutton Namkeen Tikka</div><div class="prices"><div class="price-row"><span class="price-label">4 Pieces</span><span class="price-val">Market Price</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=60" alt="Beef Tikka" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Beef Namkeen Tikka</div><div class="prices"><div class="price-row"><span class="price-label">4 Pieces</span><span class="price-val">Market Price</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&w=500&q=60" alt="Kabab" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Turkish Kabab</div><div class="prices"><div class="price-row"><span class="price-label">1 Plate</span><span class="price-val">Market Price</span></div></div></div></div>
     </div>
 
-    <!-- LAZZAT BEEF SPECIAL -->
+    <!-- BEEF SPECIAL -->
     <div id="beef-special" class="menu-grid">
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Beef%20Rosh%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Beef Rosh (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Beef Rosh (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Beef%20Namkeen%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Beef Namkeen (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Beef Namkeen (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Beef%20Shinwari%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Beef Shinwari (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Beef Shinwari (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Beef%20Namkeen%20Tikka%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Beef Namkeen Tikka (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Beef Namkeen Tikka (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Special%20Lazzat%20Pulao%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Special Lazzat Pulao (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Special Lazzat Pulao (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Turkish%20Beef%20Kabab%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Turkish Beef Kabab (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Turkish Beef Kabab (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Turkish%20Chicken%20Kabab%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Turkish Chicken Kabab (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Turkish Chicken Kabab (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Lazzat%20Special%20White%20Dall%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Lazzat Special White Dall (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Lazzat Special White Dall (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=500&q=60" alt="Beef Rosh" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Beef Rosh (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=500&q=60" alt="Beef Shinwari" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Beef Shinwari (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
     </div>
 
-    <!-- LAZZAT CHICKEN SPECIAL -->
-    <div id="chicken-lazzat-special" class="menu-grid">
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Rosh%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Rosh (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Rosh (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Handi%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Handi (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Handi (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Shinwari%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Shinwari (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Shinwari (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chicken%20Kabab%20Dash%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chicken Kabab Dash (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Kabab Dash (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Special%20Lazzat%20Pulao%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Special Lazzat Pulao (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Special Lazzat Pulao (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Turkish%20Beef%20Kabab%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Turkish Beef Kabab (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Turkish Beef Kabab (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Turkish%20Chicken%20Kabab%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Turkish Chicken Kabab (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Turkish Chicken Kabab (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Lazzat%20Special%20White%20Dall%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Lazzat Special White Dall (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Lazzat Special White Dall (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
+    <!-- CHICKEN LAZZAT SPECIAL -->
+    <div id="chicken-lazzat" class="menu-grid">
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1606471191009-63994c53433b?auto=format&fit=crop&w=500&q=60" alt="Chicken Special" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Lazzat Chicken Special</div><div class="prices"><div class="price-row"><span class="price-label">Special Recipe</span><span class="price-val">Order Only</span></div></div></div></div>
     </div>
 
-    <!-- LAZZAT MUTTON SPECIAL -->
+    <!-- MUTTON SPECIAL -->
     <div id="mutton-special" class="menu-grid">
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Mutton%20Rosh%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Mutton Rosh (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Mutton Rosh (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Mutton%20Namkeen%20Sulemani%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Mutton Namkeen Sulemani (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Mutton Namkeen Sulemani (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Mutton%20Shinwari%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Mutton Shinwari (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Mutton Shinwari (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Mutton%20Namkeen%20Tikka%20(4%20pc)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Mutton Namkeen Tikka (4 pc)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Mutton Namkeen Tikka (4 pc)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Special%20Lazzat%20Pulao%20(Half)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Special Lazzat Pulao (Half)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Special Lazzat Pulao (Half)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Turkish%20Beef%20Kabab%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Turkish Beef Kabab (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Turkish Beef Kabab (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Turkish%20Chicken%20Kabab%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Turkish Chicken Kabab (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Turkish Chicken Kabab (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Lazzat%20Special%20White%20Dall%20(1%20Plate)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Lazzat Special White Dall (1 Plate)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Lazzat Special White Dall (1 Plate)</div><div class="prices"><div class="price-row"><span class="price-label">Platter Dish</span><span class="price-val">Included</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=60" alt="Mutton Special" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Lazzat Mutton Special</div><div class="prices"><div class="price-row"><span class="price-label">Per Kg</span><span class="price-val">Market Price</span></div></div></div></div>
     </div>
 
     <!-- FAST FOOD -->
     <div id="fast-food" class="menu-grid">
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Zinger%20Burger%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Zinger Burger" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Zinger Burger</div><div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">350/-</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Tower%20Burger%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Tower Burger" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Tower Burger</div><div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">450/-</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Chapli%20Burger%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Chapli Burger" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chapli Burger</div><div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">300/-</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Patty%20Burger%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Patty Burger" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Patty Burger</div><div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">250/-</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Fried%20Hot%20Wings%20(5%2F10%20pcs)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Fried Hot Wings (5/10 pcs)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Fried Hot Wings (5/10 pcs)</div><div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">300/550</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/Fried%20Chicken%20Piece%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Fried Chicken Piece" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Fried Chicken Piece</div><div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">200/-</span></div></div></div></div>
-      <div class="menu-item"><img src="https://image.pollinations.ai/prompt/French%20Fries%20(Small%2FLarge)%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="French Fries (Small/Large)" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">French Fries (Small/Large)</div><div class="prices"><div class="price-row"><span class="price-label">Price</span><span class="price-val">200/350</span></div></div></div></div>
-      <!-- Deals -->
-      <div class="menu-item">
-        <img src="https://image.pollinations.ai/prompt/Lazzat%20Deal%201%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Lazzat Deal 1" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Deal 1</div>
-          <div class="item-desc" style="color: #ffdf70; font-weight: 600;">Zinger Burger, Fries, Cold Drink 345ml</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Combo</span><span class="price-val">450/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://image.pollinations.ai/prompt/Lazzat%20Deal%202%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Lazzat Deal 2" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Deal 2</div>
-          <div class="item-desc" style="color: #ffdf70; font-weight: 600;">2 Zinger Burgers, Fries, Hot Wings 6 Pcs, 2 Cold Drinks 345ml</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Combo</span><span class="price-val">1350/-</span></div></div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://image.pollinations.ai/prompt/Family%20Deal%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Family Deal" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Lazzat Family Deal</div>
-          <div class="item-desc" style="color: #ffdf70; font-weight: 600;">4 Zinger Burgers, 10 Hot Wings, 4 Fried Chicken Pieces, 2 Large Fries, 1.5 Ltr Drink</div>
-          <div class="prices"><div class="price-row"><span class="price-label">Full Package</span><span class="price-val">2400/-</span></div></div>
-        </div>
-      </div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=60" alt="Burger" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Zinger Burger</div><div class="prices"><div class="price-row"><span class="price-label">Standard</span><span class="price-val">Rs 450</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=60" alt="Pizza" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Chicken Tikka Pizza</div><div class="prices"><div class="price-row"><span class="price-label">Medium</span><span class="price-val">Rs 1200</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1576107248882-ff8fb6f5ed61?auto=format&fit=crop&w=500&q=60" alt="Fries" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Loaded Fries</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 350</span></div></div></div></div>
     </div>
 
-    <!-- SIDES & DRINKS -->
-    <div id="sides-drinks" class="menu-grid">
-      <div class="menu-item">
-        <img src="https://image.pollinations.ai/prompt/Naan%20Roti%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Naan Roti" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Naan / Roti</div>
-          <div class="prices">
-            <div class="price-row"><span class="price-label">Sada Roti (Per Head)</span><span class="price-val">70/-</span></div>
-            <div class="price-row"><span class="price-label">Garlic Naan</span><span class="price-val">80/-</span></div>
-            <div class="price-row"><span class="price-label">Roghni Naan</span><span class="price-val">100/-</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://image.pollinations.ai/prompt/Tea%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Tea" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Tea & Green Tea</div>
-          <div class="prices">
-            <div class="price-row"><span class="price-label">Tea</span><span class="price-val">100/-</span></div>
-            <div class="price-row"><span class="price-label">Green Tea</span><span class="price-val">70/-</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://image.pollinations.ai/prompt/Beverages%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Beverages" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Beverages</div>
-          <div class="prices">
-            <div class="price-row"><span class="price-label">Regular/345ml</span><span class="price-val">80/100</span></div>
-            <div class="price-row"><span class="price-label">Tin/1 Ltr</span><span class="price-val">150/180</span></div>
-            <div class="price-row"><span class="price-label">1.5 Ltr</span><span class="price-val">240/-</span></div>
-            <div class="price-row"><span class="price-label">Water (500ml/1.5L)</span><span class="price-val">70/100</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="menu-item">
-        <img src="https://image.pollinations.ai/prompt/Raita%20Salad%20traditional%20dish%20food%20photography%20delicious%20restaurant%20high%20quality?seed=42&width=400&height=300&nologo=true" alt="Raita Salad" class="item-img" loading="lazy">
-        <div class="item-info">
-          <div class="item-title">Raita & Salad</div>
-          <div class="prices">
-            <div class="price-row"><span class="price-label">Mint/Zeera Raita</span><span class="price-val">120/-</span></div>
-            <div class="price-row"><span class="price-label">Fresh Salad</span><span class="price-val">150/-</span></div>
-          </div>
-        </div>
-      </div>
+    <!-- DRINKS & COFFEE -->
+    <div id="drinks" class="menu-grid">
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=500&q=60" alt="Mint Margarita" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Mint Margarita</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 300</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=500&q=60" alt="Strawberry Margarita" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Strawberry Margarita</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 380</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=500&q=60" alt="Mojito" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Virgin Mojito</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 450</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=500&q=60" alt="Cappuccino" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Cappuccino Hot</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 500</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=500&q=60" alt="Latte" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Caramel Latte Cold</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 450</span></div></div></div></div>
+      <div class="menu-item"><img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=500&q=60" alt="Lassi" class="item-img" loading="lazy"><div class="item-info"><div class="item-title">Special Lazzat Sweet Lassi</div><div class="prices"><div class="price-row"><span class="price-label">Regular</span><span class="price-val">Rs 300</span></div></div></div></div>
     </div>
   </section>
 
@@ -321,11 +286,10 @@
     <div class="footer-content">
       <h3>Lazzat Shinwari</h3>
       <div class="footer-info">
-        <p>📍 Bhalwal, Punjab, Pakistan</p>
-        <p>📞 Order Now: +92 3437 50 00 50</p>
-        <p>🕒 Open 24 Hours</p>
+        <p>Bhalwal City, Pakistan</p>
+        <p>Open 24/7</p>
+        <p>Phone: +92 343 7500050</p>
       </div>
-      <p style="color: #888; font-size: 0.9rem; margin-top: 2rem;">The Authentic Taste of Shinwari in Bhalwal.</p>
     </div>
   </footer>
 
